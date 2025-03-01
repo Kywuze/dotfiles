@@ -1,0 +1,35 @@
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x lxsession > /dev/null || lxsession -n -a &
+pgrep -x picom > /dev/null || picom &
+pgrep -x dunst > /dev/null || dunst &
+
+~/.config/polybar/launch.sh
+
+xsetroot -cursor_name left_ptr &
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+bspc config border_width         2
+bspc config window_gap          4
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+bspc rule -a Pcmanfm state=floating
+bspc rule -a discord desktop='^2'
+bspc rule -a steam desktop='^3'
+bspc rule -a tidal-hifi desktop='^4'
+
+# Autostart apps
+
+pgrep -x steam > /dev/null || steam &
+pgrep -x discord > /dev/null || discord &
+pgrep -x tidal-hifi > /dev/null || tidal-hifi
