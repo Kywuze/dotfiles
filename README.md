@@ -8,3 +8,6 @@ some stuff is not made by me
 # dependencies
 
 a lot i cba to write them out
+for sure awesome font
+cascadia nerd font
+every lazyvim dependency
